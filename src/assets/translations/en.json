@@ -1,0 +1,79 @@
+{
+	"shared": {
+		"buttons": {
+			"btn_accept": "Accept",
+			"btn_add": "Add",
+			"btn_clear": "Clear",
+			"btn_deferred_export": "Deferred Export",
+			"btn_delete": "Delete",
+			"btn_edit": "Edit",
+			"btn_export": "Export",
+			"btn_print": "Print",
+			"btn_refresh": "Refresh",
+			"btn_reject": "Reject",
+			"btn_resend": "Resend",
+			"btn_search": "Search",
+			"btn_send": "Send CEN",
+			"btn_setting_book": "Generate Book",
+			"btn_show_document": "View documents",
+			"btn_xml": "Download XML"
+		},
+		"i18n": {
+			"languageSelector": {
+				"chooseLanguage": "Change language",
+				"language": {
+					"english": "English",
+					"spanish": "Spanish"
+				}
+			}
+		},
+		"notification": {
+			"all_notification": "All notifications",
+			"not_notification": "Sin notificaciones",
+			"show_certifcated": "Ver certificados cargados",
+			"title": "Notifications"
+		},
+		"table": {
+			"actions": "Actions",
+			"editable": {
+				"tableFieldTypeYesNo": {
+					"no": "No",
+					"yes": "Yes"
+				}
+			},
+			"info": "Showing&nbsp;<b>{{start}}</b>&nbsp;to&nbsp;<b>{{end}}</b>&nbsp;of&nbsp;<b>{{total}}</b>&nbsp;entries",
+			"lengthMenuEntries": "entries",
+			"lengthMenuShow": "Show",
+			"no_records_available": "No records available"
+		},
+		"validation": {
+			"allowExtensions": "Please select a file with an accepted extension (#{requiredExtensions}).",
+			"email": "Please enter a valid email address.",
+			"isEmail": "Please enter a valid email address.",
+			"isPhone": "Please write a valid phone number.",
+			"isURL": "Please enter a valid URL.",
+			"max": "Please enter a value less than or equal to #{max}.",
+			"maxlength": "Please enter no more than #{requiredLength} characters.",
+			"min": "Please enter a value greater than or equal to #{min}.",
+			"minlength": "Please enter at least #{requiredLength} characters.",
+			"nullValidator": "This field is required.",
+			"pattern": "Invalid format.",
+			"required": "This field is required.",
+			"requiredFile": "This file is required.",
+			"requiredTrue": "This field must be true.",
+			"rut": "Please write a valid RUT."
+		}
+	},
+	"home": {
+		"title": "Wellcome"
+	},
+	"employee": {
+		"title": "Employes",
+		"list": {
+			"th_name": "Name",
+			"th_lastname": "Lastname",
+			"th_profile": "Profile",
+			"th_d_create": "Date create"
+		}
+	}
+}

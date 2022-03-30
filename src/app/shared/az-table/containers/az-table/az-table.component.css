@@ -1,0 +1,355 @@
+:host ::ng-deep .table-app {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #4e5155;
+}
+:host ::ng-deep .table-app .td, :host ::ng-deep .table-app .th {
+  position: relative;
+  padding: 0.625rem;
+  font-size: 0.894rem;
+  text-align: center;
+  user-select: none;
+}
+:host ::ng-deep .table-app .td input.form-control, :host ::ng-deep .table-app .th input.form-control {
+  text-align: inherit !important;
+}
+:host ::ng-deep .table-app .td .checkbox-app, :host ::ng-deep .table-app .th .checkbox-app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--terciario);
+  cursor: pointer;
+}
+:host ::ng-deep .table-app .td .checkbox-app .box, :host ::ng-deep .table-app .th .checkbox-app .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--primario);
+  border-radius: 0.25rem;
+  background: var(--white-color);
+}
+:host ::ng-deep .table-app .td .checkbox-app .box span, :host ::ng-deep .table-app .th .checkbox-app .box span {
+  padding-top: 2px;
+  display: none;
+  color: var(--primario);
+}
+:host ::ng-deep .table-app .td .checkbox-app--radio .box, :host ::ng-deep .table-app .th .checkbox-app--radio .box {
+  border-radius: 50%;
+}
+:host ::ng-deep .table-app .td .checkbox-app--radio .box span, :host ::ng-deep .table-app .th .checkbox-app--radio .box span {
+  background: var(--primario);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--white-color);
+}
+:host ::ng-deep .table-app .td .checkbox-app--radio .box span::before, :host ::ng-deep .table-app .th .checkbox-app--radio .box span::before, :host ::ng-deep .table-app .td .checkbox-app--radio .box span::after, :host ::ng-deep .table-app .th .checkbox-app--radio .box span::after {
+  display: none;
+}
+:host ::ng-deep .table-app .td input[type='checkbox']:checked ~ .checkbox-app .box span, :host ::ng-deep .table-app .th input[type='checkbox']:checked ~ .checkbox-app .box span {
+  display: block;
+}
+:host ::ng-deep .table-app .td input[type='radio']:checked ~ .checkbox-app .box span, :host ::ng-deep .table-app .th input[type='radio']:checked ~ .checkbox-app .box span {
+  display: block;
+}
+:host ::ng-deep .table-app .table-app--thead {
+  background: var(--white-color);
+  border-bottom: 1px solid var(--primario);
+}
+:host ::ng-deep .table-app .table-app--thead .th {
+  color: var(--primario);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+:host ::ng-deep .table-app .table-app--thead .th.checkbox {
+  width: 50px;
+  max-width: 50px;
+}
+:host ::ng-deep .table-app .table-app--thead .th.actions {
+  width: 150px;
+  max-width: 200px;
+}
+:host ::ng-deep .table-app .table-app--tbody .tr {
+  border-bottom: 2px solid rgba(0,0,0,.15);
+}
+:host ::ng-deep .table-app .table-app--tbody .tr:last-child {
+  border-bottom: none;
+}
+:host ::ng-deep .table-app .table-app--tbody .tr .td.checkbox {
+  width: 50px;
+  max-width: 50px;
+}
+:host ::ng-deep .table-app .table-app--tbody .tr .td.actions {
+  width: 150px;
+  max-width: 200px;
+}
+:host ::ng-deep .table-app .table-app--tbody .tr:not(.no-data-available):hover {
+  background: transparent;
+}
+:host ::ng-deep .table-app .table-app--tbody .tr:not(.no-data-available):hover .td {
+  color: var(--terciario);
+}
+:host ::ng-deep .table-app .table-app--thead, :host ::ng-deep .table-app .table-app--tbody .tr {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+:host ::ng-deep .table-app .table-app--thead .td, :host ::ng-deep .table-app .table-app--tbody .tr .td, :host ::ng-deep .table-app .table-app--thead .th, :host ::ng-deep .table-app .table-app--tbody .tr .th {
+  width: 100%;
+}
+:host ::ng-deep .table-app .table-app--thead .td input.form-control, :host ::ng-deep .table-app .table-app--tbody .tr .td input.form-control, :host ::ng-deep .table-app .table-app--thead .th input.form-control, :host ::ng-deep .table-app .table-app--tbody .tr .th input.form-control {
+  text-align: inherit !important;
+}
+:host ::ng-deep .table-app .table-app--thead .th, :host ::ng-deep .table-app .table-app--tbody .tr .th {
+  white-space: nowrap;
+}
+:host ::ng-deep .table-app .table-app--thead .td, :host ::ng-deep .table-app .table-app--tbody .tr .td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+:host ::ng-deep .table-app--pagination, :host ::ng-deep .table-app--selectrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+:host ::ng-deep .table-app--pagination {
+  justify-content: space-between;
+}
+:host ::ng-deep .table-app--pagination p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.894rem;
+  color: var(--texto);
+  background: var(--white-color);
+  width: max-content;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+}
+:host ::ng-deep .table-app--pagination p span {
+  font-weight: bold;
+  margin: 0 0.25rem;
+}
+:host ::ng-deep .table-app--selectrow {
+  justify-content: flex-start;
+}
+:host ::ng-deep .table-app--selectrow .select-rowlimit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% / 4);
+}
+:host ::ng-deep .table-app--selectrow .select-rowlimit select {
+  width: 80px !important;
+  margin: 0 0.5rem !important;
+}
+:host ::ng-deep .table-app--selectrow .select-rowlimit p {
+  display: block;
+  margin: 0;
+  font-size: 0.894rem;
+  color: var(--texto);
+  line-height: 1;
+  white-space: nowrap !important;
+}
+:host ::ng-deep .table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #4e5155;
+}
+:host ::ng-deep .table td, :host ::ng-deep .table th {
+  position: relative;
+  padding: 0.625rem;
+  vertical-align: top;
+  border-top: 1px solid #e8e8e9;
+  font-size: 0.894rem;
+  text-align: center;
+}
+:host ::ng-deep .table td input.form-control, :host ::ng-deep .table th input.form-control {
+  text-align: inherit !important;
+}
+:host ::ng-deep .table td .checkbox-app, :host ::ng-deep .table th .checkbox-app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--terciario);
+  cursor: pointer;
+}
+:host ::ng-deep .table td .checkbox-app .box, :host ::ng-deep .table th .checkbox-app .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--primario);
+  border-radius: 0.25rem;
+  background: var(--white-color);
+}
+:host ::ng-deep .table td .checkbox-app .box span, :host ::ng-deep .table th .checkbox-app .box span {
+  padding-top: 2px;
+  display: none;
+  color: var(--primario);
+}
+:host ::ng-deep .table td .checkbox-app--radio .box, :host ::ng-deep .table th .checkbox-app--radio .box {
+  border-radius: 50%;
+}
+:host ::ng-deep .table td .checkbox-app--radio .box span, :host ::ng-deep .table th .checkbox-app--radio .box span {
+  background: var(--primario);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--white-color);
+}
+:host ::ng-deep .table td .checkbox-app--radio .box span::before, :host ::ng-deep .table th .checkbox-app--radio .box span::before, :host ::ng-deep .table td .checkbox-app--radio .box span::after, :host ::ng-deep .table th .checkbox-app--radio .box span::after {
+  display: none;
+}
+:host ::ng-deep .table td input[type='checkbox']:checked ~ .checkbox-app .box span, :host ::ng-deep .table th input[type='checkbox']:checked ~ .checkbox-app .box span {
+  display: block;
+  padding: 2px 0 0 !important;
+}
+:host ::ng-deep .table td input[type='radio']:checked ~ .checkbox-app .box span, :host ::ng-deep .table th input[type='radio']:checked ~ .checkbox-app .box span {
+  display: block;
+}
+:host ::ng-deep .table thead {
+  background: var(--white-color);
+  border-bottom: 1px solid var(--primario) !important;
+}
+:host ::ng-deep .table thead th {
+  vertical-align: bottom;
+  border-bottom: 1px solid var(--primario);
+  color: var(--primario);
+  font-weight: bold;
+  border-top: none !important;
+}
+:host ::ng-deep .table tbody td .table-link {
+  color: var(--secundario) !important;
+}
+:host ::ng-deep .table .table-app--tbody .td .table-link {
+  color: var(--secundario) !important;
+}
+:host ::ng-deep .table thead th.checkbox {
+  width: 50px;
+  max-width: 50px;
+}
+:host ::ng-deep .table thead th.actions {
+  width: 150px;
+  max-width: 200px;
+}
+:host ::ng-deep .table tbody tr:not(.no-data-available):hover {
+  background: transparent;
+}
+:host ::ng-deep .table tbody tr:not(.no-data-available):hover td {
+  color: var(--terciario);
+}
+:host ::ng-deep .table--pagination, :host ::ng-deep .table--selectrow {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+:host ::ng-deep .table--pagination {
+  justify-content: space-between;
+}
+:host ::ng-deep .table--pagination p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.894rem;
+  color: var(--terciario);
+  background: var(--white-color);
+  width: max-content;
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+}
+:host ::ng-deep .table--pagination p span {
+  font-weight: bold;
+  margin: 0 0.25rem;
+}
+:host ::ng-deep .table--selectrow {
+  justify-content: flex-start;
+}
+:host ::ng-deep .table--selectrow .select-rowlimit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% / 4);
+}
+:host ::ng-deep .table--selectrow .select-rowlimit select {
+  width: 80px !important;
+  margin: 0 0.5rem !important;
+}
+:host ::ng-deep .table--selectrow .select-rowlimit p {
+  display: block;
+  margin: 0;
+  font-size: 0.894rem;
+  color: var(--terciario);
+  line-height: 1;
+}
+:host ::ng-deep pagination-controls {
+  height: 46px;
+}
+:host ::ng-deep .sort-icon {
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-left: 0.25rem;
+  color: var(--terciario);
+  padding: 0.25rem 0.35rem;
+  cursor: pointer;
+}
+:host ::ng-deep .fcc {
+  white-space: nowrap !important;
+}
+:host ::ng-deep .text-left .fcc {
+  justify-content: flex-start !important;
+}
+:host ::ng-deep .text-center .fcc {
+  justify-content: center !important;
+}
+:host ::ng-deep .text-right .fcc {
+  justify-content: flex-end !important;
+}
+:host ::ng-deep .title-th {
+  margin: 0 !important;
+  text-transform: capitalize !important;
+  color: inherit;
+}
+:host ::ng-deep .no-data-available .not-data-img {
+  display: block;
+  width: 205px;
+  margin: 1rem auto;
+}
+:host ::ng-deep .no-data-available p {
+  margin: 0;
+  font-size: 0.894rem;
+  font-weight: bold;
+  opacity: 0.65;
+  letter-spacing: 0.015rem;
+  color: var(--terciario);
+}
+.scrollbar-x {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+.scrollbar-x .table, .scrollbar-x .table-app {
+  margin-bottom: 0 !important;
+}

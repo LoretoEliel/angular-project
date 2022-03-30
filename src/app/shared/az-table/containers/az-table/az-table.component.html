@@ -1,0 +1,86 @@
+<az-table-per-page *ngIf="pagination" (changeItemsPerPage)="itemsPerPageChanged($event)"></az-table-per-page>
+
+<div class="scrollbar-x">
+  <ng-container *ngIf="scrollable; else notScrollableTableTemplate">
+    <div class="table-app">
+      <div
+        class="table-app--thead"
+        az-table-header
+        [actionable]="actionable"
+        [fields]="fields"
+        [headerTemplate]="header"
+        [scrollable]="scrollable"
+        [selectable]="selectable"
+        [selectMode]="selectMode"
+        [selectedAll]="isSelectedAll"
+        (selectAll)="changeSelectionAllRows($event)"
+        (sortChanged)="sortingChanged($event)"
+      ></div>
+
+      <div
+        class="table-app--tbody"
+        az-table-body
+        [idTable]="PAGINATION_ID"
+        [actionable]="actionable"
+        [actions]="actions"
+        [fields]="fields"
+        [rows]="
+          filteredRows
+            | paginate
+              : { id: PAGINATION_ID, itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }
+        "
+        [scrollable]="scrollable"
+        [selectable]="selectable"
+        [selectMode]="selectMode"
+        (actionClick)="actionClicked($event)"
+        (rowSelected)="selectRow($event)"
+        (rowUnselected)="unselectRow($event)"
+      ></div>
+    </div>
+  </ng-container>
+  <ng-template #notScrollableTableTemplate>
+    <table class="table">
+      <thead
+        az-table-header
+        [actionable]="actionable"
+        [fields]="fields"
+        [headerTemplate]="header"
+        [scrollable]="scrollable"
+        [selectable]="selectable"
+        [selectMode]="selectMode"
+        [selectedAll]="isSelectedAll"
+        (selectAll)="changeSelectionAllRows($event)"
+        (sortChanged)="sortingChanged($event)"
+      ></thead>
+  
+      <tbody
+        az-table-body
+        [fields]="fields"
+        [idTable]="PAGINATION_ID"
+        [rows]="
+          filteredRows
+            | paginate
+              : { id: PAGINATION_ID, itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }
+        "
+        [selectable]="selectable"
+        [selectMode]="selectMode"
+        [actionable]="actionable"
+        [actions]="actions"
+        (rowSelected)="selectRow($event)"
+        (rowUnselected)="unselectRow($event)"
+        (actionClick)="actionClicked($event)"
+      ></tbody>
+    </table>
+  </ng-template>
+</div>
+
+<ng-template [ngTemplateOutlet]="header"></ng-template>
+
+<az-table-pagination
+  *ngIf="pagination"
+  [id]="PAGINATION_ID"
+  [itemsPerPage]="itemsPerPage"
+  [currentPage]="currentPage"
+  [totalItems]="totalItems"
+  (pageChange)="pageChanged($event)"
+></az-table-pagination>

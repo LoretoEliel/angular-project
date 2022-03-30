@@ -1,0 +1,79 @@
+{
+	"shared": {
+		"buttons": {
+			"btn_accept": "Aceptar",
+			"btn_add": "Agregar",
+			"btn_clear": "Limpiar",
+			"btn_deferred_export": "Exportación Diferida",
+			"btn_delete": "Eliminar",
+			"btn_edit": "Editar",
+			"btn_export": "Exportar",
+			"btn_print": "Imprimir",
+			"btn_refresh": "Refrescar",
+			"btn_reject": "Rechazar",
+			"btn_resend": "Reenviar",
+			"btn_search": "Buscar",
+			"btn_send": "Enviar CEN",
+			"btn_setting_book": "Generar Libro",
+			"btn_show_document": "Ver Documentos",
+			"btn_xml": "Descargar XML"
+		},
+		"i18n": {
+			"languageSelector": {
+				"chooseLanguage": "Cambiar lenguaje",
+				"language": {
+					"english": "Inglés",
+					"spanish": "Español"
+				}
+			}
+		},
+		"notification": {
+			"all_notification": "Todas las notificaciones",
+			"not_notification": "Sin notificaciones",
+			"show_certifcated": "Ver certificados cargados",
+			"title": "Notificaciones"
+		},
+		"table": {
+			"actions": "Acciones",
+			"editable": {
+				"tableFieldTypeYesNo": {
+					"no": "No",
+					"yes": "Si"
+				}
+			},
+			"info": "Mostrando&nbsp;de&nbsp;<b>{{start}}</b>&nbsp;a&nbsp;<b>{{end}}</b>&nbsp;de&nbsp;<b>{{total}}</b>&nbsp;registros",
+			"lengthMenuEntries": "registros",
+			"lengthMenuShow": "Mostrar",
+			"no_records_available": "No hay registros disponibles"
+		},
+		"validation": {
+			"allowExtensions": "Seleccione un archivo con una extensión aceptada (#{requiredExtensions}).",
+			"email": "Por favor, escribe una dirección de correo válida.",
+			"isEmail": "Por favor, escribe una dirección de correo válida.",
+			"isPhone": "Por favor, escribe un telefono válido.",
+			"isURL": "Por favor, escribe una URL válida.",
+			"max": "Por favor, escriba un valor menor o igual a #{max}.",
+			"maxlength": "Por favor, no escriba menos de #{requiredLength} caracteres.",
+			"min": "Por favor, escriba un valor mayor o igual a #{min}.",
+			"minlength": "Por favor, no escriba menos de #{requiredLength} caracteres.",
+			"nullValidator": "Este campo es obligatorio.",
+			"pattern": "Formato inválido.",
+			"required": "Este campo es obligatorio.",
+			"requiredFile": "Este archivo es obligatorio.",
+			"requiredTrue": "Este campo debe ser verdadero.",
+			"rut": "Por favor, escribe un RUT válido."
+		}
+	},
+	"home": {
+		"title": "Bienvenido"
+	},
+	"employee": {
+		"title": "Empleados",
+		"list": {
+			"th_name": "Nombre",
+			"th_lastname": "Apellido",
+			"th_profile": "Perfil",
+			"th_d_create": "Fecha de creación"
+		}
+	}
+}

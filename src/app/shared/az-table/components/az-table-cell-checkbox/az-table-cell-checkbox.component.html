@@ -1,0 +1,6 @@
+<input #checkbox [type]="selectMode === 'simple' ? 'radio' : 'checkbox'" [name]="selectMode === 'simple' ? selectMode + '_radio_' + idTable : ''" class="dataChecked no-display" [checked]="checked" />
+<label class="checkbox-app" [ngClass]="selectMode === 'simple' ? 'checkbox-app--radio' : ''" (click)="onSelected($event)">
+  <div class="box">
+    <span class="fas fa-check"></span>
+  </div>
+</label>

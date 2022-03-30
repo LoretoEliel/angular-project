@@ -1,0 +1,58 @@
+{
+  "employes": [
+    {
+      "name": "Eliel",
+      "lastname": "Loreto",
+      "profile": 1,
+      "id": 1
+    },
+    {
+      "name": "Jose",
+      "lastname": "Hernandez",
+      "profile": 1,
+      "d_create": "2022-03-12 09:51:54",
+      "id": 2
+    },
+    {
+      "name": "Frainzuanklin",
+      "lastname": "Vasquez",
+      "profile": 1,
+      "d_create": "2022-03-12 10:02:41",
+      "id": 3
+    },
+    {
+      "name": "Felipe",
+      "lastname": "Salinas",
+      "profile": 2,
+      "d_create": "2022-03-12 10:03:54",
+      "id": 4
+    },
+    {
+      "name": "Juan",
+      "lastname": "Diaz",
+      "profile": 1,
+      "d_create": "2022-03-12 15:21:05",
+      "id": 5
+    },
+    {
+      "name": "Camilo",
+      "lastname": "Sesto",
+      "profile": 3,
+      "d_create": "2022-03-12 15:21:47",
+      "id": 6
+    },
+    {
+      "name": "Teresa Andreina",
+      "lastname": "Campos",
+      "profile": 4,
+      "id": 7
+    },
+    {
+      "name": "Jannett",
+      "lastname": "Sifuentes",
+      "profile": 4,
+      "d_create": "2022-03-13 16:03:55",
+      "id": 8
+    }
+  ]
+}

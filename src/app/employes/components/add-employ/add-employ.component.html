@@ -1,0 +1,36 @@
+<form class="container" [formGroup]="form" (ngSubmit)="submit()">
+  <h4 mat-dialog-title class="titulo-modal mt-2">Crear empleado</h4>
+  <mat-dialog-content>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label>Nombre</label> 
+          <input class="form-control" formControlName="name" placeholder="Nombre del empleado">
+          <p *ngIf="!!form.get('name')?.errors?.maxlength" style="color: red; font-size: .5rem; margin: 0;">Ha excedido el máximo de longitud del nombre</p>
+          <p *ngIf="!!form.get('name')?.errors?.minlength" style="color: red; font-size: .5rem; margin: 0;">El mínimo de logitud del nombre es de 3 caracteres</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label>Apellido</label> 
+          <input class="form-control" formControlName="lastname" placeholder="Apellido del empleado">
+          <p *ngIf="!!form.get('lastname')?.errors?.maxlength" style="color: red; font-size: .5rem; margin: 0;">Ha excedido el máximo de longitud del apellido</p>
+          <p *ngIf="!!form.get('lastname')?.errors?.minlength" style="color: red; font-size: .5rem; margin: 0;">El mínimo de logitud del apellido es de 3 caracteres</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-group">
+          <label>Perfil</label>
+          <select formControlName="profile" class="form-control">
+            <option value="" selected disabled>Seleccine el perfil</option>
+            <option *ngFor="let p of listProfile" [value]="p.value">{{ p.text }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button (click)="dialogRef.close()" type="button" class="btn mr-2">Cancelar</button>
+    <button [disabled]="!form.valid" class="btn btn-primary">Aceptar</button>
+  </mat-dialog-actions>
+</form>

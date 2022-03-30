@@ -1,0 +1,21 @@
+<div class="container card">
+  <div class="row">
+    <div class="col-12">
+      <div class="row margen-contenedor">
+        <div class="col-12 col-md-8">
+          <h3>
+            <br>
+            {{ BASE_TRANSLATE + '.title' | translate }}
+          </h3>
+        </div>
+        <div class="col-12 col-md-4" style="display: flex; justify-content: flex-end; align-items: center;">
+          <button class="btn btn-primary" (click)="openAdd()">Crear empleado</button>
+        </div>
+      </div>
+      
+      <div class="col-12">
+        <az-table [fields]="columns" [items]="(rows$ | async) || []" [actions]="customActions" (actionClick)="onActionClick($event)" [pagination]="true"></az-table>
+      </div>
+    </div>
+  </div>
+</div>

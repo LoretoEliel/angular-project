@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "prettier",
+    "ngrx"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "prettier",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:ngrx/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": true
+      }
+    ]
+  }
+}

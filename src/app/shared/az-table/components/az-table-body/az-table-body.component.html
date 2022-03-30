@@ -1,0 +1,138 @@
+<ng-template #defaultBodyTemplate>
+  <ng-container *ngIf="rows.length > 0; else elseEmptyTemplate">
+    <ng-container *ngFor="let row of rows; let i = index">
+      <ng-container *ngIf="scrollable; else notScrollableBodyTemplate">
+        <div class="tr">
+          <ng-container *ngIf="selectable">
+            <ng-container *ngIf="isCheckbox(row); else noCheckbox">
+              <div
+                class="td checkbox"
+                az-table-cell-checkbox
+                [checked]="row.selected"
+                [selectMode]="selectMode"
+                [idTable]="idTable"
+                (changeSelection)="$event ? selectRow(row, i) : unselectRow(row, i)"
+              ></div>
+            </ng-container>
+            <ng-template #noCheckbox>
+              <div class="td checkbox"></div>
+            </ng-template>
+          </ng-container>
+          <ng-container *ngIf="(fields ? fields : []).length > 0; else noFieldDefinitionTemplate">
+            <ng-container *ngFor="let field of fields">
+              <div class="td" [ngClass]="getCellClass(field)" [attr.data-field]="field?.key" [ngStyle]="getStyles(field)">
+                <ng-container *ngIf="getIsEditable(field); else notEditableTemplate">
+                  <az-table-cell-editable [field]="field" [row]="row" [vInput]="getCellValue(row.item, field)" (change)="onChangeTableEditable($event, row.item, field)"></az-table-cell-editable>
+                </ng-container>
+                <ng-template #notEditableTemplate>
+                  <ng-container *ngIf="getHTMLBoolean(field); else noHTML">
+                    <div class="html" [innerHTML]="getCellValue(row.item, field) | safeHtml"></div>
+                  </ng-container>
+                  
+                  <ng-template #noHTML>
+                    {{ getCellValue(row.item, field) }}
+                  </ng-template>
+                </ng-template>
+              </div>
+            </ng-container>
+          </ng-container>
+          <ng-template #noFieldDefinitionTemplate>
+            <ng-container *ngFor="let property of getProperties(row.item)">
+              <div class="td">
+                {{ property.value }}
+              </div>
+            </ng-container>
+          </ng-template>
+
+          <ng-container *ngIf="actionable">
+            <div class="td">
+              <div
+                class="tools"
+                az-table-cell-actions
+                [actions]="actions"
+                [row]="row"
+                (actionClick)="actionClicked($event, row)"
+              ></div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+      <ng-template #notScrollableBodyTemplate>
+        <tr>
+          <ng-container *ngIf="selectable">
+            <ng-container *ngIf="isCheckbox(row); else noCheckbox">
+              <th
+                class="checkbox"
+                az-table-cell-checkbox
+                [checked]="row.selected"
+                [selectMode]="selectMode"
+                [idTable]="idTable"
+                (changeSelection)="$event ? selectRow(row, i) : unselectRow(row, i)"
+              ></th>
+            </ng-container>
+            <ng-template #noCheckbox>
+              <th class="checkbox"></th>
+            </ng-template>
+          </ng-container>
+          <ng-container *ngIf="(fields ? fields : []).length > 0; else noFieldDefinitionTemplate">
+            <ng-container *ngFor="let field of fields">
+              <td [ngClass]="getCellClass(field)" [attr.data-field]="field?.key" [ngStyle]="getStyles(field)">
+                <ng-container *ngIf="getIsEditable(field); else notEditableTemplate">
+                  <az-table-cell-editable [field]="field" [row]="row" [vInput]="getCellValue(row.item, field)" (change)="onChangeTableEditable($event, row.item, field)"></az-table-cell-editable>
+                </ng-container>
+                <ng-template #notEditableTemplate>
+                  <ng-container *ngIf="getHTMLBoolean(field); else noHTML">
+                    <div class="html" [innerHTML]="getCellValue(row.item, field) | safeHtml"></div>
+                  </ng-container>
+                  <ng-template #noHTML>
+                    {{ getCellValue(row.item, field) }}
+                  </ng-template>
+                </ng-template>
+              </td>
+            </ng-container>
+          </ng-container>
+          <ng-template #noFieldDefinitionTemplate>
+            <ng-container *ngFor="let property of getProperties(row.item)">
+              <td>
+                {{ property.value }}
+              </td>
+            </ng-container>
+          </ng-template>
+
+          <ng-container *ngIf="actionable">
+            <td>
+              <div
+                class="tools"
+                az-table-cell-actions
+                [actions]="actions"
+                [row]="row"
+                (actionClick)="actionClicked($event, row)"
+              ></div>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-template>
+    </ng-container>
+  </ng-container>
+  <ng-template #elseEmptyTemplate>
+    <ng-container *ngTemplateOutlet="emptyTemplate ? emptyTemplate : !scrollable ? defaultEmptyTemplateTable : defaultEmptyTemplateDiv"></ng-container>
+  </ng-template>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="bodyTemplate ? bodyTemplate : defaultBodyTemplate"></ng-container>
+
+<ng-template #defaultEmptyTemplateTable>
+  <tr class="no-data-available text-center">
+    <td [attr.colspan]="getColspan()" class="no-data-available">
+      <p class="m-0">{{ BASE_TRANSALATE + '.no_records_available' | translate }}</p>
+    </td>
+  </tr>
+</ng-template>
+
+<ng-template #defaultEmptyTemplateDiv>
+  <div class="tr no-data-available">
+    <div class="td no-data-available">
+      <p class="m-0">{{ BASE_TRANSALATE + '.no_records_available' | translate }}</p>
+    </div>
+  </div>
+</ng-template>

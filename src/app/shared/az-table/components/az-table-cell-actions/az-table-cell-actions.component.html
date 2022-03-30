@@ -1,0 +1,21 @@
+<ng-container *ngIf="getItemAction(); else noActions">
+  <ng-container *ngFor="let action of actions">
+    <span
+      *ngIf="getActionActive(action) === true"
+      class="tools__item"
+      [ngClass]="getClassesFromAction(action)"
+      [title]="(getTooltipFromAction(action) | translate)"
+      (click)="actionClicked($event, action)"
+    ></span>
+  </ng-container>
+</ng-container>
+<ng-template #noActions>
+  <ng-container *ngFor="let action of actions">
+    <span
+      class="tools__item"
+      [ngClass]="getClassesFromAction(action)"
+      [title]="(getTooltipFromAction(action) | translate)"
+      (click)="actionClicked($event, action)"
+    ></span>
+  </ng-container>
+</ng-template>

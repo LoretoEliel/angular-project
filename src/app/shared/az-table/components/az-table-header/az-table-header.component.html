@@ -1,0 +1,70 @@
+<ng-template #defaultHeaderTemplate>
+  <!-- #region Scrollable -->
+  <ng-container *ngIf="scrollable; else notScrollableHeaderTemplate">
+    <ng-container *ngIf="selectable">
+      <div class="th checkbox" az-table-cell-checkbox [checked]="selectedAll" (changeSelection)="masterToggle()"></div>
+    </ng-container>
+    <ng-container *ngIf="fields">
+      <div
+        *ngFor="let field of fields; let i = index"
+        (click)="isSorteable(field) ? orderBy($event, field) : false"
+        class="th t-th"
+        [ngClass]="getCellClass(field)"
+        [ngStyle]="getStyles(field)"
+      >
+        <div class="fcc" [ngStyle]="getStylesFlexbox(field)">
+          <p class="m-0 title-th" [innerHTML]="fieldTitle(field) | translate"></p>
+          <span
+            *ngIf="isSorteable(field)"
+            #sortIcon
+            [attr.data-sort]="getKeyByField(field)"
+            class="sort-icon fa fa-sort"
+          ></span>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="actionable">
+      <div class="th actions">
+        {{ BASE_TRANSALATE + '.actions' | translate }}
+      </div>
+    </ng-container>
+  </ng-container>
+  <!-- #endregion Scrollable -->
+
+  <!-- #region Not Scrollable -->
+  <ng-template #notScrollableHeaderTemplate>
+    <ng-container *ngIf="selectable">
+      <ng-container *ngIf="selectMode === 'multiple'; else noMultiple">
+        <th class="checkbox" az-table-cell-checkbox [checked]="selectedAll" [selectMode]="selectMode" (changeSelection)="masterToggle()"></th>
+      </ng-container>
+      <ng-template #noMultiple>
+        <th class="checkbox"></th>
+      </ng-template>
+    </ng-container>
+    <ng-container *ngIf="fields">
+      <th
+        *ngFor="let field of fields; let i = index"
+        (click)="isSorteable(field) ? orderBy($event, field) : false"
+        class="t-th"
+        [ngClass]="getCellClass(field)"
+        [ngStyle]="getStyles(field)"
+      >
+        <div class="fcc" [ngStyle]="getStylesFlexbox(field)">
+          <p class="m-0 title-th" [innerHTML]="fieldTitle(field) | translate"></p>
+          <span
+            *ngIf="isSorteable(field)"
+            #sortIcon
+            [attr.data-sort]="getKeyByField(field)"
+            class="sort-icon fa fa-sort"
+          ></span>
+        </div>
+      </th>
+    </ng-container>
+    <th *ngIf="actionable" class="actions">
+      {{ BASE_TRANSALATE + '.actions' | translate }}
+    </th>
+  </ng-template>
+  <!-- #endregion Not Scrollable -->
+</ng-template>
+
+<ng-container *ngTemplateOutlet="headerTemplate ? headerTemplate : defaultHeaderTemplate"></ng-container>

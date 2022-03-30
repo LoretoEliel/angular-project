@@ -1,0 +1,15 @@
+<div class="az-datepicker">
+  <input
+    #dp="bsDatepicker"
+    bsDatepicker
+    [bsConfig]="{ isAnimated: true }"
+    [bsConfig]="{ dateInputFormat: format }"
+    [(ngModel)]="value"
+    type="text"
+    class="form-control"
+    (blur)="onBlur()"
+    [disabled]="disabled"
+  />
+  <span *ngIf="!disabled" (click)="dp.toggle()" class="az-datepicker__icon fa fa-calendar-alt"></span>
+  <span *ngIf="disabled" class="az-datepicker__icon fa fa-calendar-alt disabled"></span>
+</div>

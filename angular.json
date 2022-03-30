@@ -1,0 +1,221 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "c75478b0-da5f-451e-ac73-0764e39b164c"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "web-client": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "allowedCommonJsDependencies": ["lodash", "faker", "dragula"],
+            "outputPath": "dist/web-client",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "node_modules/dragula/dist/dragula.css",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css",
+              {
+                "input": "src/vendor/styles/rtl/appwork.scss",
+                "bundleName": "appwork",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/appwork-material.scss",
+                "bundleName": "appwork-material",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/bootstrap.scss",
+                "bundleName": "bootstrap",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/bootstrap-material.scss",
+                "bundleName": "bootstrap-material",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/colors.scss",
+                "bundleName": "colors",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/colors-material.scss",
+                "bundleName": "colors-material",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/uikit.scss",
+                "bundleName": "uikit",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/theme-azurian-dte.scss",
+                "bundleName": "theme-azurian-dte",
+                "inject": true
+              },
+              {
+                "input": "src/vendor/styles/rtl/theme-azurian-dte-material.scss",
+                "bundleName": "theme-azurian-dte-material",
+                "inject": true
+              },
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "./node_modules/datatables.net/js/jquery.dataTables.js",
+              "./node_modules/datatables.net-select/js/dataTables.select.js",
+              "./node_modules/datatables.net-select-dt/js/select.dataTables.min.js",
+              "./node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+              "./node_modules/datatables.net-buttons/js/dataTables.buttons.js",
+              "./node_modules/datatables.net-buttons/js/buttons.colVis.js",
+              "./node_modules/datatables.net-buttons/js/buttons.flash.js",
+              "./node_modules/datatables.net-buttons/js/buttons.html5.js",
+              "./node_modules/datatables.net-buttons/js/buttons.print.js",
+              "./node_modules/jszip/dist/jszip.js",
+              "./src/assets/js/dataTables.bootstrap4.min.js",
+              "./node_modules/datatables.net-colreorder/js/dataTables.colReorder.js",
+              "./src/assets/vendor/libs/popper/popper.js",
+              "./src/assets/vendor/js/bootstrap.js",
+              "./src/assets/vendor/js/mega-dropdown.js",
+              "./src/assets/vendor/libs/swiper/swiper.js",
+              "./src/assets/js/shop.js"
+            ]
+          },
+          "configurations": {
+            "prod": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": false
+              },
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "3mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "5kb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ]
+            },
+            "atest": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.atest.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-client:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/purple-green.css", "src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "web-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-client:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "web-client"
+}

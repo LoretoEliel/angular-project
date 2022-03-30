@@ -1,0 +1,31 @@
+<ng-container [ngSwitch]="fieldType">
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.number">
+    <input type="number" [(ngModel)]="vInput" [maxlength]="getMaxlength(field)"  class="form-control campo-value" [required]="inputRequired" [disabled]="disabled" />
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.text">
+    <input type="text" [(ngModel)]="vInput" [maxlength]="getMaxlength(field)"  class="form-control campo-value" [required]="inputRequired" [disabled]="disabled" />
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.password">
+    <input type="password" [(ngModel)]="vInput" [maxlength]="getMaxlength(field)" class="form-control campo-value" [required]="inputRequired" [disabled]="disabled" />
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.email">
+    <input type="email" [(ngModel)]="vInput" [maxlength]="getMaxlength(field)" class="form-control campo-value" [required]="inputRequired" [disabled]="disabled" />
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.color">
+    <input type="color" [(ngModel)]="vInput" class="form-control campo-value" [required]="inputRequired" [disabled]="disabled" />
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.date">
+    <az-datepicker [innerValue]="vInput" (change)="valueChange($event)" [disabled]="disabled"></az-datepicker>
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.yesNo">
+    <select class="form-control" [required]="inputRequired" [disabled]="disabled">
+      <option value="false">{{ BASE_TRANSALATE + '.tableFieldTypeYesNo.yes' | translate }}</option>
+      <option value="true">{{ BASE_TRANSALATE + '.tableFieldTypeYesNo.no' | translate }}</option>
+    </select>
+  </ng-container>
+  <ng-container *ngSwitchCase="TABLE_FIELD_TYPE.select">
+    <select class="form-control" (change)="ngChageSelect($event)" [required]="inputRequired" [disabled]="disabled">
+      <option *ngFor="let v of vInput; let i = index" [value]="getIdItemSelect(v)" [selected]="getSelected(v)">{{ getLabelSelect(v) }}</option>
+    </select>
+  </ng-container>
+</ng-container>

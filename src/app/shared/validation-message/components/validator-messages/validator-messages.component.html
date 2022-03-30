@@ -1,0 +1,25 @@
+<ng-container *ngIf="control">
+  <ng-container *ngIf="customMessage; else elseTemplate">
+    <ng-container *ngIf="control.errors">
+      <small class="invalid-feedback d-block">
+        {{ customMessage }}
+      </small>
+    </ng-container>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <ng-container *ngFor="let errorMessage of errorMessages">
+      <ng-container *ngIf="control.hasError(errorMessage.key)">
+        <ng-container *ngIf="tooltip; else elseSmallTemplate">
+          <div class="invalid-tooltip d-block">
+            {{ getMessageToDisplay(errorMessage).display }}
+          </div>
+        </ng-container>
+        <ng-template #elseSmallTemplate>
+          <small class="invalid-feedback d-block">
+            {{ getMessageToDisplay(errorMessage).display }}
+          </small>
+        </ng-template>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+</ng-container>

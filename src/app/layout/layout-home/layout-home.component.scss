@@ -1,0 +1,6 @@
+:host {
+  display: block;
+}
+:host ::ng-deep .layout-loading .sidenav-link {
+  transition: none !important;
+}

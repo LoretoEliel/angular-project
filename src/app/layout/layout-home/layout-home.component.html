@@ -1,0 +1,16 @@
+<div class="layout-wrapper layout-1 layout-without-sidenav" [ngClass]="{'layout-loading': !initialized}">
+  <div class="layout-inner">
+    <app-sidebar class="l_navbar layout-navbar"></app-sidebar>
+    <div class="layout-container">
+      <div class="layout-content">
+        <div class="container-fluid router-transitions flex-grow-1 container-p-y">
+          <router-outlet></router-outlet>
+        </div>
+
+        <footer class="footer">
+          <a class="footer__notcopy" href="http://www.azurian.com" target="_blank">© Azurian | Todos los derechos reservados.</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

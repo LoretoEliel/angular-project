@@ -1,0 +1,13 @@
+<div class="table-app table-app--pagination">
+  <p [innerHTML]="BASE_TRANSALATE + '.info' | translate: { start: start(), end: end(), total: totalItems }"></p>
+  <pagination-controls
+    [id]="id"
+    (pageChange)="pageChanged($event)"
+    (pageBoundsCorrection)="pageChanged($event)"
+    previousLabel=""
+    nextLabel=""
+    screenReaderPaginationLabel="Paginacion"
+    screenReaderPageLabel="Pagina"
+    screenReaderCurrentLabel="Estas en la pagina"
+  ></pagination-controls>
+</div>

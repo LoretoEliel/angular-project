@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Azurian Health | Sincronización</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Use Ubuntu font instead of Roboto -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+
+  <!-- Icon fonts -->
+  <link rel="stylesheet" href="assets/vendor/fonts/ionicons.css">
+  <link rel="stylesheet" href="assets/vendor/fonts/linearicons.css">
+  <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css">
+
+  <!-- Core stylesheets -->
+  <link rel="stylesheet" href="assets/vendor/css/rtl/bootstrap.css" class="theme-settings-bootstrap-css">
+  <link rel="stylesheet" href="assets/vendor/css/rtl/appwork.css" class="theme-settings-appwork-css">
+  <link rel="stylesheet" href="assets/vendor/css/rtl/theme-corporate.css" class="theme-settings-theme-css">
+  <link rel="stylesheet" href="assets/vendor/css/rtl/colors.css" class="theme-settings-colors-css">
+  <link rel="stylesheet" href="assets/vendor/css/rtl/uikit.css">
+
+  <script src="assets/vendor/js/material-ripple.js"></script>
+  <script src="assets/vendor/js/layout-helpers.js"></script>
+  <!-- Core scripts -->
+  <script src="assets/vendor/js/pace.js"></script>
+
+  <!-- Page -->
+  <link rel="stylesheet" href="assets/css/shop.css">
+
+  <!-- Libs -->
+  <link rel="stylesheet" href="assets/vendor/libs/swiper/swiper.css">
+  
+  <style>
+    .app-splash-screen { background: #fff; position: fixed; display: block; z-index: 99999999; top: 0; right: 0; bottom: 0; left: 0; opacity: 1; -webkit-transition: opacity .3s; transition: opacity .3s; }
+    .app-splash-screen-content { position: absolute; top: 50%; left: 50%; transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); -webkit-animation: appSplashScreenAnimation 1.6s ease-in-out 0s infinite; animation: appSplashScreenAnimation 1.2s ease-in-out 0s infinite; }
+    @-webkit-keyframes appSplashScreenAnimation {
+      0%, 20% { -webkit-transform: translate3d(-50%, -50%, 0) rotateY(0); transform: translate3d(-50%, -50%, 0) rotateY(0); }
+      50% { -webkit-transform: translate3d(-50%, -50%, 0) rotateY(180deg); transform: translate3d(-50%, -50%, 0) rotateY(180deg); }
+      80%, 100% { -webkit-transform: translate3d(-50%, -50%, 0) rotateY(360deg); transform: translate3d(-50%, -50%, 0) rotateY(360deg); }
+    }
+    @keyframes appSplashScreenAnimation {
+      0%, 20% { -webkit-transform: translate3d(-50%, -50%, 0) rotateY(0); transform: translate3d(-50%, -50%, 0) rotateY(0); }
+      50% { -webkit-transform: translate3d(-50%, -50%, 0) rotateY(180deg); transform: translate3d(-50%, -50%, 0) rotateY(180deg); }
+      80%, 100% { -webkit-transform: translate3d(-50%, -50%, 0) rotateY(360deg); transform: translate3d(-50%, -50%, 0) rotateY(360deg); }
+    }
+  </style>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+</body>
+</html>
