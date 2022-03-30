@@ -6,8 +6,8 @@ Prerequisites
 
 - Git
 ```python
-git config --global user.name "eazuran"
-git config --global user.email "ejemplo@azurian.com"
+git config --global user.name "your name"
+git config --global user.email "example@mail.com"
 ```
 
 - Nodejs@^12.x.x
