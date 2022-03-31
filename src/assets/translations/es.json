@@ -69,11 +69,15 @@
 	},
 	"employee": {
 		"title": "Empleados",
+		"text_crear_empleado": "Crear empleado",
 		"list": {
 			"th_name": "Nombre",
 			"th_lastname": "Apellido",
 			"th_profile": "Perfil",
-			"th_d_create": "Fecha de creación"
+			"th_d_create": "Fecha de creación",
+			"tooltip": {
+				"edit": "Editar empleado"
+			}
 		}
 	}
 }

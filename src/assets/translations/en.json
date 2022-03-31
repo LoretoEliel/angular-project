@@ -69,11 +69,15 @@
 	},
 	"employee": {
 		"title": "Employes",
+		"text_crear_empleado": "Add employ",
 		"list": {
 			"th_name": "Name",
 			"th_lastname": "Lastname",
 			"th_profile": "Profile",
-			"th_d_create": "Date create"
+			"th_d_create": "Date create",
+			"tooltip": {
+				"edit": "Edit employ"
+			}
 		}
 	}
 }
