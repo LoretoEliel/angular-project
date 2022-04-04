@@ -15,6 +15,11 @@ const routes: Routes = [
     loadChildren: () => import('./employes/employes.module').then((m) => m.EmployesModule),
   },
   {
+    path: 'demo',
+    component: LayoutHomeComponent,
+    loadChildren: () => import('./demo/demo.module').then((m) => m.DemoModule)
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'inicio',

@@ -1,0 +1,50 @@
+<h1>Hola clase.!</h1>
+
+<h3>ngModel, ngClass, ngStyle</h3>
+<input type="text" [(ngModel)]="text" class="" [ngClass]="is_boolean ? 'form-control' : ''">
+<h4 [ngStyle]="{width: '100%', textAlign: 'left', color: 'red', fontSize: '3rem'}" class="text mt-4">{{ text }}</h4>
+
+<hr>
+
+<h3>*ngIf</h3>
+<p *ngIf="is_boolean">Esto se cumple</p>
+
+<hr>
+
+<h3>*ngFor</h3>
+<p *ngFor="let l of list; let i = index">#{{ i }} | {{ l }}</p>
+
+<hr>
+
+<h3>*ngSwitch</h3>
+<div *ngFor="let eh of listEmpresasHeroes" [ngSwitch]="eh.type != 'no-existe'">
+    <p>{{ eh.name }}</p>
+</div>
+
+<hr>
+<h3>*ngPlural</h3>
+<div [ngPlural]="numero">
+    <ng-template ngPluralCase="=12">
+        Es mayor
+    </ng-template>
+    <ng-template ngPluralCase="=0">
+        Es menor
+    </ng-template>
+</div>
+
+<hr>
+<h3>Directive de componente</h3>
+<p>Imagen que funciona</p>
+<img src="https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg" class="img" appNotImage>
+<p>Imagen que no funciona</p>
+<img src="" class="img" appNotImage>
+
+<hr>
+
+<h5>FORM</h5>
+<form [formGroup]="form" (ngSubmit)="save()">
+    <input type="text" class="form-control" formControlName="name">
+    <p *ngIf="!!form.get('name')?.errors?.required" class="text-error">El campo es requerido</p>
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="!form.valid">Guardar</button>
+</form>

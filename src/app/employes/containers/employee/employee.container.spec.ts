@@ -69,10 +69,10 @@ describe('EmployeeContainer', () => {
             imports: [
                 HttpClientTestingModule, // -> Este modulo se encarga de hacer peticiones que no son reales.
                 TranslateModule.forRoot(translateModuleConfig),
-                MatDialogModule,
+                // MatDialogModule,
                 BrowserAnimationsModule,
                 FormsModule,
-                MatSnackBarModule
+                // MatSnackBarModule
             ],
             declarations: [
                 EmployeeContainer // -> Componente que recibira las pruebas unitarias.

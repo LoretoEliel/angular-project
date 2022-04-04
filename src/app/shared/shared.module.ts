@@ -38,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatNativeDateModule, MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core';
 import { AzTableModule } from './az-table';
 import { AzInputControlModule } from './az-input-control';
+import { NotImageDirective } from './directive/not-image.directive';
 
 defineLocale('es', esLocale);
 
@@ -51,6 +52,7 @@ export function createValidationLoader(translate: TranslateService) {
     LanguageSelectorComponent,
     // Directives
     PassMatchDirective,
+    NotImageDirective,
     SidebarComponent
   ],
   imports: [
@@ -132,6 +134,7 @@ export function createValidationLoader(translate: TranslateService) {
     MatTabsModule,
     AzTableModule,
     AzInputControlModule,
+    NotImageDirective
   ],
 })
 export class SharedModule {
